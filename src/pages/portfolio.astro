@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+    <Header />
+    <main class="pt-24">
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Project Portfolio</h1>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">A selection of successful projects demonstrating our expertise in building robust and efficient custom solutions.</p>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Project 1 -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="https://placehold.co/800x600/059669/ffffff?text=Project+1" alt="Project 1 Screenshot" class="rounded-xl shadow-lg w-full">
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Automated Quoting System Implementation</h2>
+                            <p class="text-gray-700 mb-4">
+                                Developed and deployed a custom Configure, Price, Quote (CPQ) system to streamline the sales process, reduce errors, and accelerate quote generation for a large-scale manufacturing client.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Reduced quote generation time by 75%.</li>
+                                <li>Eliminated 99% of manual pricing errors.</li>
+                                <li>Integrated seamlessly with existing ERP and CRM systems.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="md:order-2">
+                            <img src="https://placehold.co/800x600/047857/ffffff?text=Project+2" alt="Project 2 Screenshot" class="rounded-xl shadow-lg w-full">
+                        </div>
+                        <div class="md:order-1">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Web-to-Print Portal Overhaul</h2>
+                            <p class="text-gray-700 mb-4">
+                                Re-architected a client's customer-facing web-to-print portal to enhance user experience, improve performance, and add critical new features for custom orders and real-time job tracking.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Increased customer satisfaction scores by 40%.</li>
+                                <li>Decreased server load and page response times by 60%.</li>
+                                <li>Enabled new revenue streams through customizable product offerings.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="https://placehold.co/800x600/065f46/ffffff?text=Project+3" alt="Project 3 Screenshot" class="rounded-xl shadow-lg w-full">
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Business Process Automation</h2>
+                            <p class="text-gray-700 mb-4">
+                                Analyzed and automated a series of manual, inter-departmental workflows, creating a custom software solution that reduced administrative overhead and improved data accuracy across the organization.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Saved an estimated 200+ employee hours per month.</li>
+                                <li>Provided real-time visibility into process bottlenecks.</li>
+                                <li>Created a scalable system ready for future growth.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
