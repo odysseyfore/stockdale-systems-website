@@ -1,21 +1,35 @@
 ---
 import '../styles/global.css';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = 'Stockdale Systems, LLC | Resilient Systems for Complex Challenges',
+    description = 'Stockdale Systems provides expert consulting for custom software solutions and business process automation. We build resilient systems to help you prevail.',
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stockdale Systems, LLC | Resilient Systems for Complex Challenges</title>
-    <meta name="description" content="Stockdale Systems provides expert consulting for custom software solutions and business process automation. We build resilient systems to help you prevail." />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            background-color: #f8fafc;
         }
         h1, h2, h3 {
             font-family: 'Lexend', sans-serif;
