@@ -1,11 +1,15 @@
 <footer class="bg-gray-800 text-gray-400 py-8">
     <div class="container mx-auto px-6 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} Stockdale Systems, LLC. All Rights Reserved.</p>
+        <p>&copy; <span id="footer-year"></span> Stockdale Systems, LLC. All Rights Reserved.</p>
         <p class="mt-2">Issaquah, WA</p>
         <div class="mt-4 flex justify-center space-x-6">
             <a href="mailto:contact@stockdalesystems.com" class="hover:text-white">contact@stockdalesystems.com</a>
-            <!-- Add LinkedIn link when available -->
-            <!-- <a href="#" class="hover:text-white">LinkedIn</a> -->
+            <a href="https://www.linkedin.com/in/braedenjohnston/" target="_blank" rel="noopener noreferrer" class="hover:text-white">LinkedIn</a>
         </div>
     </div>
 </footer>
+
+<script>
+    const el = document.getElementById('footer-year');
+    if (el) el.textContent = String(new Date().getFullYear());
+</script>

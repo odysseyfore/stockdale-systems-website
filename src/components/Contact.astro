@@ -5,18 +5,19 @@
             <p class="mt-2 text-gray-300 max-w-2xl mx-auto">Ready to discuss your next project or support needs? Reach out to start the conversation.</p>
         </div>
         <div class="max-w-xl mx-auto">
-            <form id="contactForm" class="space-y-6">
+            <form id="contactForm" name="contact" data-netlify="true" class="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                    <input type="text" name="name" id="name" required class="w-full bg-gray-800 border-gray-600 rounded-lg px-4 py-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+                    <input type="text" name="name" id="name" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                    <input type="email" name="email" id="email" required class="w-full bg-gray-800 border-gray-600 rounded-lg px-4 py-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+                    <input type="email" name="email" id="email" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition">
                 </div>
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                    <textarea name="message" id="message" rows="4" required class="w-full bg-gray-800 border-gray-600 rounded-lg px-4 py-2 focus:ring-emerald-500 focus:border-emerald-500 transition"></textarea>
+                    <textarea name="message" id="message" rows="4" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition"></textarea>
                 </div>
                 <div>
                     <button type="submit" class="w-full bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-emerald-800 transition-transform hover:scale-105 shadow-lg">
