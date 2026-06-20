@@ -1,0 +1,214 @@
+---
+// STANDALONE PROTOTYPE — "Clean Build" direction (deep teal).
+// Self-contained design system (src/styles/clean-build.css); does NOT use the
+// site's Tailwind/Layout, so it renders identically regardless of build config.
+// View at /clean-build. Does not touch the live site.
+import '../styles/clean-build.css';
+
+const EMAIL = "mailto:contact@stockdalesystems.com";
+
+const capabilities = [
+  { n: "01", title: "Epicor Kinetic Advisory", body: "Hands-on guidance for teams running or migrating to Kinetic — part master remediation, BOMs & BOOs, Methods of Manufacturing — aligned to how the floor actually operates." },
+  { n: "02", title: "ERP Discovery & Assessments", body: "Structured discovery that maps your current-state systems, processes, and team culture, then turns what I find into a prioritized, traceable plan you can act on." },
+  { n: "03", title: "Automation & Integration", body: "Custom scripts, integrations, and document or web-to-print automation that remove the manual steps and handoffs sitting between your existing systems." },
+];
+
+const steps = [
+  { n: "01", title: "Confront", body: "An honest audit of the systems, data, and process — no sugar-coating." },
+  { n: "02", title: "Plan", body: "Prioritized, traceable findings scoped into a fixed-bid plan." },
+  { n: "03", title: "Build", body: "The remediation, tooling, and automation, delivered in tight cycles." },
+  { n: "04", title: "Hand off", body: "A system your team owns and can run — with support if you want it." },
+];
+
+const work = [
+  { slug: "cpq", tag: "Manufacturing · CPQ", metric: "6.8%", cap: "contribution-margin lift in 2 quarters", title: "CPQ logic engine, built from scratch", body: "Architected a configurator that maps the full sales-to-accounting process and estimates material yield. Cut quoting from weeks to minutes and eliminated pricing errors — 50% of all business now runs through it." },
+  { slug: "portal", tag: "Manufacturing · Customer portal", metric: "9%", cap: "annual revenue increase", title: "ERP-integrated ordering portal", body: "Led the 0-to-1 launch of a self-service portal — 2,000+ users, 500+ configurable products — on a four-month timeline, synced two-way with the ERP and wired to push print-ready files straight to production." },
+  { slug: "ops", tag: "Manufacturing · Operations intelligence", metric: "200+", cap: "operational hours / week saved", title: "Scheduling & reporting automation", body: "Built SQL-powered dashboards and a rescheduling tool that replaced manual date-juggling and reporting, giving order-management and operations teams hundreds of hours back every week." },
+];
+
+const chips = ["Epicor ERP / Kinetic", "CPQ & pricing logic", "ERP integrations & APIs", "Process automation", "Full-stack prototyping", "GCP / Firebase"];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean Build — prototype | Stockdale Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="/clean-build" class="brand"><span class="mark">[s]</span> Stockdale Systems</a>
+      <nav class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary btn-sm">Get in touch</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero bp-light">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Epicor Kinetic · ERP &amp; Enterprise Systems · Issaquah, WA</p>
+        <p class="eyebrow dim" style="margin-top:12px">Confront reality. Prevail.</p>
+        <h1 class="display" style="margin-top:14px">Make your ERP work the way your shop floor actually runs.</h1>
+        <p class="lede">I'm Braeden Johnston. I help manufacturers get more from Epicor Kinetic and the systems around it — an honest diagnosis first, then the custom software and automation to close the gaps your systems leave behind.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#work" class="btn btn-ghost">See selected work</a>
+        </div>
+      </div>
+      <div>
+        <div class="pcard-wrap">
+          <figure class="pcard">
+            <img src="/founder_image.jpg" alt="Braeden Johnston, founder of Stockdale Systems">
+            <figcaption class="pcard-cap">
+              <span class="name">Braeden Johnston</span>
+              <span class="role">Founder · Principal</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section id="services" class="bp-light" style="padding-top:32px">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What I do</p>
+        <h2 class="display">ERP, the data underneath it, and the tooling around it.</h2>
+      </div>
+      <div class="cards">
+        {capabilities.map((c) => (
+          <article class="card">
+            <div class="card-top"><span class="card-num">{c.n}</span><span class="card-rule"></span></div>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section id="work" class="bp-light">
+    <div class="wrap">
+      <div class="head-row">
+        <div style="max-width:42rem">
+          <p class="eyebrow">Selected work</p>
+          <h2 class="display">Value delivered — not just systems shipped.</h2>
+        </div>
+        <a href="/clean-build-portfolio" class="link">View all projects &rarr;</a>
+      </div>
+      <div class="work-grid">
+        {work.map((w) => (
+          <article class="work">
+            <p class="tag">{w.tag}</p>
+            <div class="metric">{w.metric}</div>
+            <div class="metric-cap">{w.cap}</div>
+            <h3>{w.title}</h3>
+            <p>{w.body}</p>
+            <a class="more" href={`/clean-build-portfolio#${w.slug}`}>Read case study &rarr;</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH / DARK BUILD BAND -->
+  <section id="approach" class="dark bp-dark">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" style="color:var(--teal-br)">How I work</p>
+        <h2 class="display">Confront the brutal facts. Then build the system that prevails.</h2>
+        <p class="sub">The Stockdale Paradox, as a working method — a straight diagnosis, then a system built to hold up.</p>
+      </div>
+
+      <div class="ba">
+        <div class="ba-box ba-before">
+          <p class="lbl">// before</p>
+          <ul>
+            <li>Manual re-keying between systems</li>
+            <li>Reports that go stale on open</li>
+            <li>Data that drifts from the floor</li>
+          </ul>
+        </div>
+        <div class="ba-arrow">&rarr;</div>
+        <div class="ba-box ba-after">
+          <p class="lbl">// after</p>
+          <ul>
+            <li>Automated, validated transactions</li>
+            <li>Live dashboards leadership trusts</li>
+            <li>Data that matches reality</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="steps">
+        {steps.map((s) => (
+          <div class="step">
+            <div class="n">{s.n}</div>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bp-light">
+    <div class="wrap">
+      <div class="head-row" style="margin-bottom:40px">
+        <div style="max-width:42rem">
+          <p class="eyebrow">About</p>
+          <h2 class="display">A builder who's run the systems — not just advised on them.</h2>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about">
+          <p class="lead">I'm Braeden Johnston, founder of Stockdale Systems. For years I was the one-person technical product team behind a manufacturer's enterprise systems — architecting a CPQ engine from scratch, launching a customer portal for 2,000+ users, and building the dashboards and automations that handed hundreds of hours back to operations.</p>
+          <p>I started Stockdale Systems to do that work for more manufacturers: confront the brutal facts of your current systems honestly, then build the software, integrations, and automation that actually move the numbers — margin, revenue, and hours saved. You work directly with me, from first call to final hand-off.</p>
+          <p style="font-size:.95rem">Background: a degree in Project Management with a minor in Global Supply Chain Management, deep Epicor (ERP / Kinetic) and CPQ experience, and full-stack, API, and cloud architecture.</p>
+        </div>
+        <aside class="panel">
+          <h3>Focus &amp; toolbox</h3>
+          <div class="chips">
+            {chips.map((c) => <span class="chip2">{c}</span>)}
+          </div>
+          <h3 style="margin-top:24px">Direct line</h3>
+          <p class="mono" style="font-size:12px;color:var(--muted);line-height:1.7">Issaquah, WA · serving manufacturers<br/>linkedin.com/in/braedenjohnston</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section id="contact" class="closing bp-light">
+    <div class="wrap inner">
+      <h2 class="display">Tell me what's slowing you down.</h2>
+      <p>Send a few details about the system or process you're wrestling with. I personally reply within one business day — no obligation.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:32px">
+        <a href={EMAIL} class="btn btn-primary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© Stockdale Systems, LLC — EST. ISSAQUAH, WA</span>
+      <span>PROTOTYPE · /clean-build</span>
+    </div>
+  </footer>
+
+</body>
+</html>
