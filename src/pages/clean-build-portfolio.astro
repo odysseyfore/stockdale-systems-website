@@ -1,0 +1,155 @@
+---
+// STANDALONE PROTOTYPE — "Clean Build" portfolio page (deep teal).
+// View at /clean-build-portfolio. Linked from /clean-build "View all projects".
+// Case-study metrics are real (from the founder's accomplishments); clients kept
+// generic pending naming decision.
+import '../styles/clean-build.css';
+
+const EMAIL = "mailto:contact@stockdalesystems.com";
+
+const cases = [
+  {
+    slug: "cpq",
+    tag: "Manufacturing · CPQ",
+    metric: "6.8%",
+    cap: "contribution-margin lift · 2 quarters",
+    title: "CPQ logic engine, built from scratch",
+    problem: "Quoting was manual, slow, and error-prone — spread across sales, engineering, and accounting with no single source of truth, so estimates took weeks and pricing mistakes slipped through.",
+    action: "Built a configurator from the ground up (1,000+ hours): mapped the full quote-to-cash process for the first time, encoded custom material-yield logic, and validated pricing against ERP data.",
+    result: "6.8% contribution-margin lift over two quarters, quoting cut from weeks to minutes, pricing errors eliminated — and 50% of all business now flows through it.",
+  },
+  {
+    slug: "portal",
+    tag: "Manufacturing · Customer portal",
+    metric: "9%",
+    cap: "annual revenue increase",
+    title: "ERP-integrated ordering portal",
+    problem: "A major customer needed self-service ordering, but orders and shipping lived outside the ERP — creating manual handoffs and a ceiling on growth.",
+    action: "Led the 0-to-1 launch in four months on the Propago framework: 500+ configurable products and user-editable templates, two-way ERP sync, and a connector that pushes print-ready files straight to production.",
+    result: "9% annual revenue increase in a high-margin market, with 2,000+ users self-serving their orders.",
+  },
+  {
+    slug: "ops",
+    tag: "Manufacturing · Operations intelligence",
+    metric: "200+",
+    cap: "operational hours / week saved",
+    title: "Scheduling & reporting automation",
+    problem: "Order management and operations burned hours every week manually rescheduling jobs and rebuilding the same reports by hand.",
+    action: "Built SQL-powered dashboards that surface production bottlenecks, plus a rescheduling tool that updates all downstream operations at once.",
+    result: "200+ operational hours saved per week — roughly 10+ hours back for each order-management team member.",
+  },
+  {
+    slug: "packslip",
+    tag: "Manufacturing · Epicor",
+    metric: "15–20",
+    cap: "hours saved per distro",
+    title: "Mass pack-slip function in Epicor",
+    problem: "The packaging team created pack slips for complex distributions by hand — slow, repetitive, and easy to get wrong.",
+    action: "Led a team to build an Epicor function that mass-generates pack slips for complex distros in minutes.",
+    result: "15–20 hours of work saved for the packaging team on every distro.",
+  },
+  {
+    slug: "architecture",
+    tag: "Stockdale · Ongoing",
+    metric: "Retained",
+    cap: "ongoing system support",
+    title: "Enterprise architecture & integrations",
+    problem: "Manufacturers depend on custom ERP and CPQ platforms that have to keep running — and keep improving — long after launch.",
+    action: "Retained to design and maintain mission-critical logic engines and API integrations across manufacturing clients' systems.",
+    result: "Stable, evolving platforms with a single accountable engineer on call.",
+  },
+  {
+    slug: "cloud",
+    tag: "Stockdale · Cloud",
+    metric: "Serverless",
+    cap: "GCP / Firebase",
+    title: "Cloud applications for small business",
+    problem: "Smaller operations need real software without enterprise cost or infrastructure overhead.",
+    action: "Architect and deploy serverless web applications on Google Cloud Platform and Firebase, sized to the business.",
+    result: "High-performance, scalable apps that grow with the company instead of boxing it in.",
+  },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Work — prototype | Stockdale Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="/clean-build" class="brand"><span class="mark">[s]</span> Stockdale Systems</a>
+      <nav class="navlinks">
+        <a href="/clean-build#work">Work</a>
+        <a href="/clean-build#approach">Approach</a>
+        <a href="/clean-build#about">About</a>
+      </nav>
+      <a href={EMAIL} class="btn btn-primary btn-sm">Get in touch</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="pagehero bp-light">
+    <div class="wrap">
+      <a href="/clean-build" class="backlink">&larr; Back to home</a>
+      <p class="eyebrow">Selected work</p>
+      <h1 class="display">Proof, not promises.</h1>
+      <p>A selection of systems I've built and rescued for manufacturers — each framed the way I work: the brutal reality, what I built, and the value it delivered. Client names kept generic; details available on a call.</p>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="bp-light" style="padding-top:8px">
+    <div class="wrap">
+      <div class="cases">
+        {cases.map((c) => (
+          <article class="case" id={c.slug}>
+            <div class="case-grid">
+              <div class="rail">
+                <p class="tag">{c.tag}</p>
+                <div class="metric">{c.metric}</div>
+                <div class="metric-cap">{c.cap}</div>
+              </div>
+              <div>
+                <h3>{c.title}</h3>
+                <div class="par">
+                  <div class="blk"><p class="lbl">The reality</p><p>{c.problem}</p></div>
+                  <div class="blk"><p class="lbl">What I built</p><p>{c.action}</p></div>
+                  <div class="blk"><p class="lbl">The result</p><p>{c.result}</p></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section id="contact" class="closing bp-dark dark">
+    <div class="wrap inner">
+      <h2 class="display">Have a system like one of these?</h2>
+      <p style="color:#B7CCC7">Tell me what's slowing you down. I personally reply within one business day — no obligation.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:32px">
+        <a href={EMAIL} class="btn btn-primary">Get in touch</a>
+        <a href="/clean-build" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">Back to home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© Stockdale Systems, LLC — EST. ISSAQUAH, WA</span>
+      <span>PROTOTYPE · /clean-build-portfolio</span>
+    </div>
+  </footer>
+
+</body>
+</html>
