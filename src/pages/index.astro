@@ -1,69 +1,23 @@
 ---
-// Import components
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
-import Philosophy from '../components/Philosophy.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import Approach from '../components/Approach.astro';
 import About from '../components/About.astro';
-import Capabilities from '../components/Capabilities.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
-
-<Layout title="Stockdale Systems, LLC | ERP & Enterprise Systems Consulting for Manufacturers">
-    <Header />
-    <main>
-        <Hero />
-        <Services />
-        <Philosophy />
-        <About />
-        <Capabilities />
-        <Contact />
-    </main>
-    <Footer />
-
-    <script>
-        const form = document.getElementById('contactForm') as HTMLFormElement;
-        const formMessage = document.getElementById('form-message');
-        const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
-
-        if (form && formMessage) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Disable button to prevent double-submit
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Sending…';
-                }
-
-                // POST form data to Netlify's form handler
-                fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(new FormData(form) as any).toString(),
-                })
-                    .then(() => {
-                        formMessage.textContent = 'Thank you for your message! I will be in touch shortly.';
-                        formMessage.className = 'mt-4 text-center text-green-400';
-                        form.reset();
-                    })
-                    .catch(() => {
-                        formMessage.textContent = 'Something went wrong. Please try again or email contact@stockdalesystems.com directly.';
-                        formMessage.className = 'mt-4 text-center text-red-400';
-                    })
-                    .finally(() => {
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.textContent = 'Send Message';
-                        }
-                        setTimeout(() => {
-                            formMessage.textContent = '';
-                            formMessage.className = 'mt-4 text-center';
-                        }, 6000);
-                    });
-            });
-        }
-    </script>
+<Layout>
+  <Header />
+  <main id="main">
+    <Hero />
+    <Services />
+    <SelectedWork />
+    <Approach />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
 </Layout>

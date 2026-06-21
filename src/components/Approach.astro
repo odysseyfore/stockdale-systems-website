@@ -1,0 +1,47 @@
+---
+const steps = [
+  { n: "01", title: "Confront", body: "An honest audit of the systems, data, and process — no sugar-coating." },
+  { n: "02", title: "Plan", body: "Prioritized, traceable findings scoped into a fixed-bid plan." },
+  { n: "03", title: "Build", body: "The remediation, tooling, and automation, delivered in tight cycles." },
+  { n: "04", title: "Hand off", body: "A system your team owns and can run — with support if you want it." },
+];
+---
+<section id="approach" class="dark bp-dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" style="color:var(--teal-br)">How I work</p>
+      <h2 class="display">Confront the brutal facts. Then build the system that prevails.</h2>
+      <p class="sub">The Stockdale Paradox, as a working method — a straight diagnosis, then a system built to hold up. No blind optimism, no sugar-coating reality.</p>
+    </div>
+
+    <div class="ba">
+      <div class="ba-box ba-before">
+        <p class="lbl">// before</p>
+        <ul>
+          <li>Manual re-keying between systems</li>
+          <li>Reports that go stale on open</li>
+          <li>Data that drifts from the floor</li>
+        </ul>
+      </div>
+      <div class="ba-arrow" aria-hidden="true">&rarr;</div>
+      <div class="ba-box ba-after">
+        <p class="lbl">// after</p>
+        <ul>
+          <li>Automated, validated transactions</li>
+          <li>Live dashboards leadership trusts</li>
+          <li>Data that matches reality</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps">
+      {steps.map((s) => (
+        <div class="step">
+          <div class="n">{s.n}</div>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

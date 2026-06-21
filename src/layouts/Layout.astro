@@ -4,39 +4,71 @@ import '../styles/global.css';
 interface Props {
     title?: string;
     description?: string;
+    ogImage?: string;
 }
 
 const {
     title = 'Stockdale Systems, LLC | ERP & Enterprise Systems Consulting for Manufacturers',
     description = 'Stockdale Systems is an independent consulting practice helping manufacturers get more from their ERP and enterprise systems, with deep Epicor Kinetic expertise plus the custom software and automation to close the gaps your systems leave behind.',
+    ogImage = '/og-image.jpg',
 } = Astro.props;
+
+// Absolute URLs (Astro.site is set in astro.config.mjs)
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Stockdale Systems, LLC",
+    description,
+    url: Astro.site?.href,
+    email: "contact@stockdalesystems.com",
+    founder: { "@type": "Person", name: "Braeden Johnston" },
+    areaServed: "United States",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Issaquah",
+        addressRegion: "WA",
+        addressCountry: "US",
+    },
+    knowsAbout: ["Epicor Kinetic", "ERP", "CPQ", "Process Automation", "Enterprise Systems"],
+    sameAs: ["https://www.linkedin.com/in/braedenjohnston/"],
+};
 ---
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.jpg" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        h1, h2, h3 {
-            font-family: 'Lexend', sans-serif;
-        }
-    </style>
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
-<body class="text-gray-800">
+<body>
+    <a href="#main" class="skip">Skip to content</a>
     <slot />
 </body>
 </html>

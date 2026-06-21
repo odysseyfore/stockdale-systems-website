@@ -1,0 +1,30 @@
+---
+const work = [
+  { slug: "cpq", tag: "Manufacturing · CPQ", metric: "6.8%", cap: "contribution-margin lift in 2 quarters", title: "CPQ logic engine, built from scratch", body: "Architected a configurator that maps the full sales-to-accounting process and estimates material yield. Cut quoting from weeks to minutes and eliminated pricing errors — 50% of all business now runs through it." },
+  { slug: "portal", tag: "Manufacturing · Customer portal", metric: "9%", cap: "annual revenue increase", title: "ERP-integrated ordering portal", body: "Led the 0-to-1 launch of a self-service portal — 2,000+ users, 500+ configurable products — on a four-month timeline, synced two-way with the ERP and wired to push print-ready files straight to production." },
+  { slug: "ops", tag: "Manufacturing · Operations intelligence", metric: "200+", cap: "operational hours / week saved", title: "Scheduling & reporting automation", body: "Built SQL-powered dashboards and a rescheduling tool that replaced manual date-juggling and reporting, giving order-management and operations teams hundreds of hours back every week." },
+];
+---
+<section id="work" class="bp-light">
+  <div class="wrap">
+    <div class="head-row">
+      <div style="max-width:42rem">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="display">Value delivered — not just systems shipped.</h2>
+      </div>
+      <a href="/portfolio" class="link">View all projects &rarr;</a>
+    </div>
+    <div class="work-grid">
+      {work.map((w) => (
+        <article class="work">
+          <p class="tag">{w.tag}</p>
+          <div class="metric">{w.metric}</div>
+          <div class="metric-cap">{w.cap}</div>
+          <h3>{w.title}</h3>
+          <p>{w.body}</p>
+          <a class="more" href={`/portfolio#${w.slug}`}>Read case study &rarr;</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
