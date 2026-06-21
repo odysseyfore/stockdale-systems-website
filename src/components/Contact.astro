@@ -1,31 +1,62 @@
-<section id="contact" class="py-20 bg-gray-900 text-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold">Let's Build Something Great</h2>
-            <p class="mt-2 text-gray-300 max-w-2xl mx-auto">Ready to discuss your next project or support needs? Reach out to start the conversation.</p>
-        </div>
-        <div class="max-w-xl mx-auto">
-            <form id="contactForm" name="contact" data-netlify="true" class="space-y-6">
-                <input type="hidden" name="form-name" value="contact" />
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                    <input type="text" name="name" id="name" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                    <input type="email" name="email" id="email" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                    <textarea name="message" id="message" rows="4" required class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500 transition"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="w-full bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-emerald-800 transition-transform hover:scale-105 shadow-lg">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-            <div id="form-message" class="mt-4 text-center"></div>
-        </div>
-    </div>
+<section id="contact" class="bp-light center">
+  <div class="wrap inner">
+    <p class="eyebrow" style="display:inline-block">Get in touch</p>
+    <h2 class="display">Tell me what's slowing you down.</h2>
+    <p>Send a few details about the system or process you're wrestling with. I personally reply within one business day — no obligation.</p>
+
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="form" style="margin-top:32px">
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="visually-hidden" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" name="name" id="name" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="message">What's going on?</label>
+        <textarea name="message" id="message" rows="5" required placeholder="The system or process you're wrestling with, and what you'd like to fix."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+      <p class="form-note">I reply personally within one business day.</p>
+      <div id="form-message" role="status" aria-live="polite"></div>
+    </form>
+  </div>
 </section>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const msg = document.getElementById('form-message');
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  if (form && msg) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          msg.textContent = "Thanks — I'll be in touch within one business day.";
+          msg.className = 'ok';
+          form.reset();
+        })
+        .catch(() => {
+          msg.textContent = 'Something went wrong. Please email contact@stockdalesystems.com directly.';
+          msg.className = 'err';
+        })
+        .finally(() => {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+          setTimeout(() => { msg.textContent = ''; msg.className = ''; }, 6000);
+        });
+    });
+  }
+</script>

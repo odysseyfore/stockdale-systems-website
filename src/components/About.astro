@@ -1,21 +1,32 @@
-<section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center max-w-5xl">
-        <div>
-             <img src="/founder_image.jpg" alt="Braeden Johnston, Founder of Stockdale Systems" class="rounded-xl shadow-lg w-full">
-        </div>
-        <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
-            <div class="text-gray-700 space-y-4">
-                <p>
-                    I'm Braeden Johnston, founder of Stockdale Systems. I help manufacturers get their ERP and enterprise systems, especially Epicor Kinetic, working the way the business actually runs. My background pairs a degree in Project Management and a minor in Global Supply Chain Management with years on the client side as a product manager, so I understand both the system and the operation it is meant to serve.
-                </p>
-                <p>
-                    My focus is on the systems that are critical to your business: diagnosing where processes and data break down, structuring clear and traceable findings, and executing meaningful improvements. No blind optimism and no sugar-coating, just resilient systems built to prevail.
-                </p>
-                <p>
-                    When I'm not untangling complex systems, you can find me navigating technical singletrack on a mountain bike or finding a clear line through the backcountry on skis. The focus, problem-solving, and resilience required in these pursuits directly inform my approach to consulting: confront the challenge, find the most efficient path, and execute with precision.
-                </p>
-            </div>
-        </div>
+---
+const chips = ["Epicor ERP / Kinetic", "CPQ & pricing logic", "ERP integrations & APIs", "Process automation", "SQL / dashboards", "GCP / Firebase"];
+---
+<section id="about" class="bp-light">
+  <div class="wrap">
+    <div class="head-row" style="margin-bottom:40px">
+      <div style="max-width:42rem">
+        <p class="eyebrow">About</p>
+        <h2 class="display">A builder who's run the systems — not just advised on them.</h2>
+      </div>
     </div>
+    <div class="about-grid">
+      <div class="about">
+        <p class="lead">I'm Braeden Johnston, founder of Stockdale Systems. For years I was the one-person technical product team behind a manufacturer's enterprise systems — architecting a CPQ engine from scratch, launching a customer portal for 2,000+ users, and building the dashboards and automations that handed hundreds of hours back to operations.</p>
+        <p>I started Stockdale Systems to do that work for more manufacturers: confront the brutal facts of your current systems honestly, then build the software, integrations, and automation that actually move the numbers — margin, revenue, and hours saved. You work directly with me, from first call to final hand-off.</p>
+        <p style="font-size:.95rem">Background: a degree in Project Management with a minor in Global Supply Chain Management, deep Epicor (ERP / Kinetic) and CPQ experience, and full-stack, API, and cloud architecture.</p>
+      </div>
+      <aside class="panel">
+        <h3>Focus &amp; toolbox</h3>
+        <div class="chips">
+          {chips.map((c) => <span class="chip2">{c}</span>)}
+        </div>
+        <h3 style="margin-top:24px">Direct line</h3>
+        <p class="mono" style="font-size:12px;color:var(--muted);line-height:1.8">
+          Issaquah, WA · serving manufacturers<br />
+          <a href="mailto:contact@stockdalesystems.com" style="color:var(--teal)">contact@stockdalesystems.com</a><br />
+          <a href="https://www.linkedin.com/in/braedenjohnston/" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">linkedin.com/in/braedenjohnston</a>
+        </p>
+      </aside>
+    </div>
+  </div>
 </section>

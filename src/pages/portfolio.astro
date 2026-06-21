@@ -2,76 +2,121 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const cases = [
+  {
+    slug: "cpq",
+    tag: "Manufacturing · CPQ",
+    metric: "6.8%",
+    cap: "contribution-margin lift · 2 quarters",
+    title: "CPQ logic engine, built from scratch",
+    problem: "Quoting was manual, slow, and error-prone — spread across sales, engineering, and accounting with no single source of truth, so estimates took weeks and pricing mistakes slipped through.",
+    action: "Built a configurator from the ground up (1,000+ hours): mapped the full quote-to-cash process for the first time, encoded custom material-yield logic, and validated pricing against ERP data.",
+    result: "6.8% contribution-margin lift over two quarters, quoting cut from weeks to minutes, pricing errors eliminated — and 50% of all business now flows through it.",
+  },
+  {
+    slug: "portal",
+    tag: "Manufacturing · Customer portal",
+    metric: "9%",
+    cap: "annual revenue increase",
+    title: "ERP-integrated ordering portal",
+    problem: "A major customer needed self-service ordering, but orders and shipping lived outside the ERP — creating manual handoffs and a ceiling on growth.",
+    action: "Led the 0-to-1 launch in four months on the Propago framework: 500+ configurable products and user-editable templates, two-way ERP sync, and a connector that pushes print-ready files straight to production.",
+    result: "9% annual revenue increase in a high-margin market, with 2,000+ users self-serving their orders.",
+  },
+  {
+    slug: "ops",
+    tag: "Manufacturing · Operations intelligence",
+    metric: "200+",
+    cap: "operational hours / week saved",
+    title: "Scheduling & reporting automation",
+    problem: "Order management and operations burned hours every week manually rescheduling jobs and rebuilding the same reports by hand.",
+    action: "Built SQL-powered dashboards that surface production bottlenecks, plus a rescheduling tool that updates all downstream operations at once.",
+    result: "200+ operational hours saved per week — roughly 10+ hours back for each order-management team member.",
+  },
+  {
+    slug: "packslip",
+    tag: "Manufacturing · Epicor",
+    metric: "15–20",
+    cap: "hours saved per distro",
+    title: "Mass pack-slip function in Epicor",
+    problem: "The packaging team created pack slips for complex distributions by hand — slow, repetitive, and easy to get wrong.",
+    action: "Led a team to build an Epicor function that mass-generates pack slips for complex distros in minutes.",
+    result: "15–20 hours of work saved for the packaging team on every distro.",
+  },
+  {
+    slug: "architecture",
+    tag: "Stockdale · Ongoing",
+    metric: "Retained",
+    cap: "ongoing system support",
+    title: "Enterprise architecture & integrations",
+    problem: "Manufacturers depend on custom ERP and CPQ platforms that have to keep running — and keep improving — long after launch.",
+    action: "Retained to design and maintain mission-critical logic engines and API integrations across manufacturing clients' systems.",
+    result: "Stable, evolving platforms with a single accountable engineer on call.",
+  },
+  {
+    slug: "cloud",
+    tag: "Stockdale · Cloud",
+    metric: "Serverless",
+    cap: "GCP / Firebase",
+    title: "Cloud applications for small business",
+    problem: "Smaller operations need real software without enterprise cost or infrastructure overhead.",
+    action: "Architect and deploy serverless web applications on Google Cloud Platform and Firebase, sized to the business.",
+    result: "High-performance, scalable apps that grow with the company instead of boxing it in.",
+  },
+];
 ---
+<Layout
+  title="Selected Work | Stockdale Systems"
+  description="Case studies showing how Stockdale Systems helps manufacturers get more from Epicor Kinetic and the systems around it — CPQ, customer portals, automation, and operations intelligence."
+>
+  <Header />
+  <main id="main">
+    <section class="pagehero bp-light">
+      <div class="wrap">
+        <a href="/" class="backlink">&larr; Back to home</a>
+        <p class="eyebrow">Selected work</p>
+        <h1 class="display">Proof, not promises.</h1>
+        <p>A selection of systems I've built and rescued for manufacturers — each framed the way I work: the brutal reality, what I built, and the value it delivered. Client names are withheld to respect confidentiality; details available on a call.</p>
+      </div>
+    </section>
 
-<Layout title="Portfolio | Stockdale Systems" description="A selection of successful projects demonstrating Stockdale Systems' expertise in building robust and efficient custom software solutions.">
-    <Header />
-    <main class="pt-24">
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Project Portfolio</h1>
-                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">A selection of recent engagements showing how I help manufacturers tighten their ERP systems, processes, and data. Client names are withheld to respect confidentiality.</p>
+    <section class="bp-light" style="padding-top:8px">
+      <div class="wrap">
+        <div class="cases">
+          {cases.map((c) => (
+            <article class="case" id={c.slug}>
+              <div class="case-grid">
+                <div class="rail">
+                  <p class="tag">{c.tag}</p>
+                  <div class="metric">{c.metric}</div>
+                  <div class="metric-cap">{c.cap}</div>
                 </div>
-
-                <div class="space-y-16">
-                    <!-- Project 1 -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Precision manufacturing operations and enterprise systems" class="rounded-xl shadow-lg w-full object-cover aspect-video">
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Epicor Kinetic Shop Floor Discipline Review</h2>
-                            <p class="text-gray-700 mb-4">
-                                Conducted an on-site shop floor walk-through and transactional discipline analysis for a precision manufacturer running Epicor Kinetic, then translated the findings into an executable closeout program.
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Delivered findings and recommendations with a stable, traceable ID system.</li>
-                                <li>Produced a color-coded executive summary matrix prioritizing the highest-impact issues.</li>
-                                <li>Identified and prioritized 13 critical (P1) items into a structured closeout program.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="md:order-2">
-                            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=2187&auto=format&fit=crop" alt="Stakeholder discovery session for an enterprise systems assessment" class="rounded-xl shadow-lg w-full object-cover aspect-video">
-                        </div>
-                        <div class="md:order-1">
-                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Manufacturing ERP Discovery &amp; Remediation</h2>
-                            <p class="text-gray-700 mb-4">
-                                Ran a structured discovery engagement for a multi-brand manufacturer, mapping current-state systems, processes, and team culture across the ERP, customer portal, and product information tooling.
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Scoped and executed a fixed-scope Discovery Statement of Work with clear deliverables.</li>
-                                <li>Led stakeholder interviews across product, engineering, and executive leadership.</li>
-                                <li>Translated findings into a prioritized current-state assessment and remediation roadmap.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Industrial print and graphics production workflow" class="rounded-xl shadow-lg w-full object-cover aspect-video">
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-3">Web-to-Print Automation &amp; Integration</h2>
-                            <p class="text-gray-700 mb-4">
-                                Built automation and integration tooling for an industrial print and graphics manufacturer, removing manual steps from a high-volume web-to-print production workflow.
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Developed a PDF automation pipeline for compression, organization, and compositing.</li>
-                                <li>Integrated and debugged the connection between internal systems and a web-to-print portal.</li>
-                                <li>Delivered a production tracking application spanning multiple facilities and venues.</li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <div>
+                  <h3>{c.title}</h3>
+                  <div class="par">
+                    <div class="blk"><p class="lbl">The reality</p><p>{c.problem}</p></div>
+                    <div class="blk"><p class="lbl">What I built</p><p>{c.action}</p></div>
+                    <div class="blk"><p class="lbl">The result</p><p>{c.result}</p></div>
+                  </div>
                 </div>
-            </div>
-        </section>
-    </main>
-    <Footer />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="dark bp-dark center">
+      <div class="wrap inner">
+        <h2 class="display">Have a system like one of these?</h2>
+        <p style="color:#B7CCC7">Tell me what's slowing you down. I personally reply within one business day — no obligation.</p>
+        <div class="cta-row" style="justify-content:center;margin-top:32px">
+          <a href="/#contact" class="btn btn-primary">Get in touch</a>
+          <a href="/" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Layout>
